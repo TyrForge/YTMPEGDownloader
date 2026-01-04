@@ -23,7 +23,7 @@ def download():
         }
     else:
         ydl_opts = {
-            'format': 'bestvideo+bestaudio/best',
+            'format': 'bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b[ext=mp4]',
             'outtmpl': '%(title)s.%(ext)s',
             'merge_output_format': 'mp4',
             'quiet': True,
@@ -51,4 +51,5 @@ tk.OptionMenu(root, format_var, "MP3", "MP4").pack()
 tk.Button(root, text="Download", command=download).pack(pady=12)
 
 root.mainloop()
+
 
