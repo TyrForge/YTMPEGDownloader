@@ -4,7 +4,6 @@ from yt_dlp import YoutubeDL
 import threading
 
 def start_download():
-    # run download in background thread
     threading.Thread(target=download, daemon=True).start()
 
 
@@ -29,7 +28,7 @@ def download():
             }],
             'quiet': True,
         }
-    else:  # MP4 (Windows-safe)
+    else:  
         ydl_opts = {
             'format': 'bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b[ext=mp4]',
             'outtmpl': '%(title)s.%(ext)s',
@@ -46,7 +45,7 @@ def download():
     finally:
         download_btn.config(state="normal")
 
-# --- UI ---
+
 root = tk.Tk()
 root.title("YouTube Downloader")
 
@@ -62,4 +61,5 @@ download_btn = tk.Button(root, text="Download", command=start_download)
 download_btn.pack(pady=12)
 
 root.mainloop()
+
 
