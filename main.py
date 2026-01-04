@@ -25,7 +25,7 @@ def download():
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
-                'preferredquality': '192',
+                'preferredquality': '320',
             }],
             'quiet': True,
         }
@@ -62,3 +62,4 @@ download_btn = tk.Button(root, text="Download", command=start_download)
 download_btn.pack(pady=12)
 
 root.mainloop()
+
