@@ -2,7 +2,7 @@
 The simplest app to download MP3 or MP4 files.
 
 # Running / building
-To just run the program without building it into an exe file you can run the "RUN WITHOUT BUILDING EXE"
+To just run the program without building it into an exe file you can run the "RUN WITHOUT BUILDING EXE" <br>
 To build the program into one .exe file run the "BUILD EXE" file
 
 # Requirements
