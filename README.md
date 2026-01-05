@@ -1,4 +1,4 @@
-# YTMPEGDownloader
+# YT2MPEG
 The simplest app to download MP3 or MP4 files.
 
 # Running
