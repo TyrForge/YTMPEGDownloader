@@ -1,5 +1,5 @@
 # YT2MPEG
-The simplest app to download MP3 or MP4 files.
+The simplest app to download MP3 or MP4 files utilizing Yt_dlp
 
 # Running / building
 To just run the program without building it into an exe file you can run the "RUN WITHOUT BUILDING EXE" <br>
