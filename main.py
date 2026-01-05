@@ -1,11 +1,35 @@
 import sys
 import os
+import json
 from PySide6.QtWidgets import (
     QApplication, QWidget, QLabel, QLineEdit, QPushButton,
     QComboBox, QFileDialog, QMessageBox, QHBoxLayout, QVBoxLayout
 )
 from PySide6.QtCore import QThread, Signal
 from yt_dlp import YoutubeDL
+
+
+APP_NAME = "YT2MPEG"
+prefs_path = os.path.join(os.getenv('APPDATA') or os.path.expanduser("~"), APP_NAME)
+prefs_file = os.path.join(prefs_path, "prefs.json")
+
+# --- Load prefs ---
+def load_prefs():
+    if os.path.exists(prefs_file):
+        try:
+            with open(prefs_file, "r") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
+
+# --- Save prefs ---
+def save_prefs(prefs):
+    os.makedirs(prefs_path, exist_ok=True)
+    with open(prefs_file, "w") as f:
+        json.dump(prefs, f, indent=2)
+
+
 
 class DownloadWorker(QThread):
     finished = Signal(bool, str)
@@ -82,10 +106,16 @@ class MainWindow(QWidget):
 
         self.setLayout(layout)
 
+        self.prefs = load_prefs()
+        self.folder_edit.setText(self.prefs.get("last_output_folder", ""))
+
     def choose_folder(self):
         folder = QFileDialog.getExistingDirectory(self, "Select Output Folder")
         if folder:
             self.folder_edit.setText(folder)
+            # Save immediately
+            self.prefs["last_output_folder"] = folder
+            save_prefs(self.prefs)
 
     def start_download(self):
         url = self.url_edit.text().strip()
