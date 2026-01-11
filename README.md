@@ -16,4 +16,7 @@ To build the program into one .exe file run the "BUILD EXE" file
 # Installation
  Just install the requirements.txt and make sure ffmpeg is installed and added to path.
 
+ ## Additional Credits:
+  * To the whole YT_DLP team
+
 
