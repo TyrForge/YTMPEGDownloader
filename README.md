@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/TyrForge/YT2MPEG/refs/heads/main/misc/YT2MPEG.svg "YT2MPEG logo")
+![alt text](https://raw.githubusercontent.com/TyrForge/YT2MPEG/refs/heads/main/misc/YT2MPEG%20withsmall.svg "YT2MPEG logo")
 The simplest app to download MP3 or MP4 files utilizing Yt_dlp
 
 # Features
