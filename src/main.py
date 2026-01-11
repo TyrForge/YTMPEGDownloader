@@ -153,7 +153,20 @@ class DownloadWorker(QThread):
                 'progress_hooks': [self.progress_hook],
                 'quiet': True,
             }
-        else:  # MP4
+        elif self.fmt == "FLAC (Lossless)":
+            ydl_opts = {
+                'format': 'bestaudio/best',
+                'outtmpl': outtmpl,
+                'postprocessors': [{
+                    'key': 'FFmpegExtractAudio',
+                    'preferredcodec': 'flac',
+                    'preferredquality': '320',
+                }],
+                'progress_hooks': [self.progress_hook],
+                'quiet': True,
+            }
+        
+        elif self.fmt == "MP4":
             ydl_opts = {
                 'format': 'bv*[vcodec^=avc1]+ba[acodec^=mp4a]/b[ext=mp4]',
                 'outtmpl': outtmpl,
@@ -200,7 +213,7 @@ class MainWindow(QWidget):
         self.browse_btn.clicked.connect(self.choose_folder)
 
         self.format_box = QComboBox()
-        self.format_box.addItems(["MP3", "MP4"])
+        self.format_box.addItems(["MP3", "FLAC (Lossless)", "MP4"])
 
         folder_layout = QHBoxLayout()
         folder_layout.addWidget(self.folder_edit)
