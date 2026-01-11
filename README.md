@@ -16,10 +16,10 @@ To build the program into one .exe file run the "BUILD EXE" file
 # Installation
  Just install the requirements.txt and make sure ffmpeg is installed and added to path.
 
-## Additional Credits:
+# Additional Credits:
 To the whole YT_DLP team
 
-# Legal Notice
+### Legal Notice
 YT2MPEG is provided as a general-purpose media downloading and conversion tool. It does not host, distribute, or provide any copyrighted content.
 
 The user is solely responsible for how this software is used.
